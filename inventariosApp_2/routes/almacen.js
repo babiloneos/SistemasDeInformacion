@@ -7,12 +7,13 @@ router.get('/alta', (req , res , next)=>{
 });
 
 router.get('/reporte', (req , res , next)=>{
-  res.render("almacen/frmReporte");
+  var ses = req.session;
+  res.render("almacen/frmReporte", {user : ses.userdata});
 });
 
 router.get('/baja', (req , res , next)=>{
-  res.render("almacen/frmBaja");
+  var ses = req.session;
+  res.render("almacen/frmBaja", {user : ses.userdata});
 });
-
 
 module.exports = router;
