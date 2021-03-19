@@ -16,6 +16,8 @@ router.post('/login', (req, res, next)=>{
       res.send('Login correcto');
       ses=req.session;
       console.log(ses.id);
+      ses.userdata = d;
+      console.log(ses.userdata);
     } else {
       res.json(e);
     }
