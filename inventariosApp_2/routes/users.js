@@ -17,10 +17,12 @@ router.post('/login', ( req , res , next )=>{
       //res.send('Login correcto');
       ses=req.session;
       console.log(ses.id);
+      ses.userdata = d;
       const payload ={
         datos: d
       };
-      const clave='dios1234';   // QUITAR !!!
+      const clave= process.env.SECRETO;   // QUITAR !!!
+      console.log(clave);
       const token = jwt.sign(payload, clave, {expiresIn:60*5});
       ses.token=token;
 
